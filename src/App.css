@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.App-link {
+  color: #61dafb;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,19 +16,18 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #686D76;
+  padding: 10px;
+  font-size: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header h1 {
+  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +38,181 @@
     transform: rotate(360deg);
   }
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.card .deleteButton, .button.deleteButton {
+  background-color: #DC000F;
+}
+
+.button {
+  background-color: #DC5F00;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+body {
+  background: #EEEEEE;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  max-width: 1824px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card button {
+  background-color: #DC5F00;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  align-self: center;
+  width: 100%;
+
+}
+
+.card button:hover {
+  background-color: #e65c00;
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.search-container label {
+  margin-right: 0.625rem;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.search-container input[type="text"] {
+  padding: 0.625rem;
+  font-size: 1rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #ccc;
+}
+
+/* Add user form */
+.addUserCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.addUserCard h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.addUserCard input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.addUserCard button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.addUserCard .button {
+  width: auto;
+  margin: 10px;
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .addUserCard {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .button {
+    width: auto;
+    padding: 10px;
+  }
+}
+
+/* user details */
+.user-details .section-title {
+  font-size: 2rem;
+  color: #333;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.basic-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
