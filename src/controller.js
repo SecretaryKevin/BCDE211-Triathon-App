@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import TriathlonApp from "./model/TriathlonApp";
 import {header} from "./component/header";
-import {AddUserForm} from "./component/addUserForm";
-import {displayTriathlons} from "./component/displayTriathlons";
+import {DisplayTriathlons} from "./component/displayTriathlons";
 import {AddTriathlonForm} from "./component/addTriathlonForm";
 import {DisplayGoals} from "./component/displayGoals";
 import {AddGoalForm} from "./component/addGoalForm";
@@ -52,10 +51,17 @@ export default function Controller() {
         saveData()
     }
 
-    const addUser = (userData) => {
-        model.addUser(userData.firstname, userData.lastname, new Date(userData.dateOfBirth))
+    const deleteTriathlon = (triathlonName) =>{
+        user.deleteTriathlon(user.getTriathlonViaName(triathlonName))
         saveData()
     }
+
+    const saveTriathlon = (triathlonName, updatedName, updatedDate, updatedLocation, updatedType) => {
+        let triathlon = user.getTriathlonViaName(triathlonName)
+        user.editTriathlon(triathlon, updatedName, updatedDate, updatedLocation, updatedType)
+        saveData()
+    }
+
 
     const clearData = () => {
         // clear all data
@@ -65,24 +71,22 @@ export default function Controller() {
 
 
     loadData()
-    if (model.allMyUsers.length === 0) {
-        return (
-            <>
-                {header()}
-                <AddUserForm addUser={addUser} />
+    if (model.allMyUsers.length === 0){
+        // due to time restrains not allowing for change in user
+        model.addUser("Test", "User", new Date(2002, 3,3))
+        saveData()
+    }
+
+    let user = model.allMyUsers[0]
+    return (
+        <>
+            {header()}
+            <h1>Welcome, User</h1>
+            {DisplayTriathlons(user, deleteTriathlon, saveTriathlon )}
+            <AddTriathlonForm addTriathlon={addTriathlon}/>
+            {DisplayGoals(user, deleteGoal, saveGoal)}
+            <AddGoalForm addGoal={addGoal}/>
+            <button onClick={clearData}>Clear All Data</button>
             </>
         )
-    } else {
-        return (
-            <div>
-                {header()}
-                <h1>Welcome, {model.allMyUsers[0].firstname} {model.allMyUsers[0].lastname}</h1>
-                {displayTriathlons(model.allMyUsers[0])}
-                <AddTriathlonForm addTriathlon={addTriathlon} />
-                {DisplayGoals(model.allMyUsers[0], deleteGoal, saveGoal)}
-                <AddGoalForm addGoal={addGoal} />
-                <button onClick={clearData}>Clear All Data</button>
-            </div>
-        )
-    }
 }

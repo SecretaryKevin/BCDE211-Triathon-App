@@ -47,46 +47,6 @@ export function AddTriathlonForm({ addTriathlon }) {
                         </select>
                     </label>
                     <br/>
-                    <h2>Race Parts</h2>
-                    <h3>Swimming</h3>
-                    <label>
-                        Distance in km:
-                        <input type="number"/>
-                    </label>
-                    <label>
-                        Start Time in minutes:
-                        <input type="number"/>
-                    </label>
-                    <label>
-                        End Time in minutes:
-                        <input type="number"/>
-                    </label>
-                    <h3>Cycling</h3>
-                    <label>
-                        Distance in km:
-                        <input type="number"/>
-                    </label>
-                    <label>
-                        Start Time in minutes:
-                        <input type="number"/>
-                    </label>
-                    <label>
-                        End Time in minutes:
-                        <input type="number"/>
-                    </label>
-                    <h3>Running</h3>
-                    <label>
-                        Distance in km:
-                        <input type="number"/>
-                    </label>
-                    <label>
-                        Start Time in minutes:
-                        <input type="number"/>
-                    </label>
-                    <label>
-                        End Time in minutes:
-                        <input type="number"/>
-                    </label>
                     <input type="submit" value="Add Triathlon"/>
                 </form>
             </div>

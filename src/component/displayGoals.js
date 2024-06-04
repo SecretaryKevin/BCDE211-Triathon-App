@@ -41,21 +41,16 @@ export function DisplayGoals(user, deleteGoal, saveGoal){
         isCompletedRef.current.checked = isCompleted;
     }
     //TODO: Tidy this up
-    if (filteredGoals.length === 0){
-        return (
-            <>
-                <h2>Goals</h2>
-                <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearchChange}/>
+
+    return(
+        <>
+            <h2>Goals</h2>
+            <input type="text" placeholder="Search via name" value={searchTerm} onChange={handleSearchChange}/>
+            {filteredGoals.length === 0 ? (
                 <div>
                     <h3>No Goals found</h3>
                 </div>
-            </>
-        )
-    } else {
-        return (
-            <div>
-                <h2>Goals</h2>
-                <input type="text" placeholder="Search via name" value={searchTerm} onChange={handleSearchChange}/>
+            ): (
                 <table>
                     <thead>
                     <tr>
@@ -116,7 +111,8 @@ export function DisplayGoals(user, deleteGoal, saveGoal){
                     })}
                     </tbody>
                 </table>
-            </div>
-        )
-    }
+            )
+            }
+        </>
+    )
 }

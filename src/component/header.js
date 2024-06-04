@@ -3,5 +3,5 @@ export function header() {
         <header>
             <h1>Triathlon App</h1>
         </header>
-    );
+    )
 }
