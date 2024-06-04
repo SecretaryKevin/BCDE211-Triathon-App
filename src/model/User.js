@@ -20,20 +20,17 @@ export default class User {
         return this.goals.find(goal => goal.name === goalName)
     }
 
-    editGoal(goal, goalName, goalDescription, targetTime, raceType) {
+    editGoal(goal, goalName, goalDescription, targetTime, raceType, isCompleted) {
         goal.name = goalName
         goal.description = goalDescription
         goal.targetTime = targetTime
         goal.raceType = raceType
+        goal.isCompleted = isCompleted
     }
 
     deleteGoal(goal) {
         let index = this.goals.indexOf(goal)
         this.goals.splice(index, 1)
-    }
-
-    completeGoal(goal) {
-        goal.isCompleted = true
     }
 
     addTriathlon(triathlonName, triathlonDate, triathlonLocation, triathlonType) {

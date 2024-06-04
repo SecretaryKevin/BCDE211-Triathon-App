@@ -1,8 +1,11 @@
 import './App.css';
 import Controller from './controller';
 function App() {
-    const controller = new Controller();
-    controller.mainDisplay();
+    return (
+        <div className="App">
+        <Controller />
+        </div>
+    );
 }
 
 export default App;
