@@ -7,7 +7,7 @@ import {DisplayTriathlons} from "./component/displayTriathlons";
 import {AddTriathlonForm} from "./component/addTriathlonForm";
 import {DisplayGoals} from "./component/displayGoals";
 import {AddGoalForm} from "./component/addGoalForm";
-import {displayRaceParts} from "./component/DisplayRaceparts";
+import {DisplayRaceParts} from "./component/DisplayRaceparts";
 import {RacePartForm} from "./component/racePartForm";
 
 export default function Controller() {
@@ -67,6 +67,18 @@ export default function Controller() {
         saveData()
     }
 
+    const deleteRacePart = (triathlonName, racePart) => {
+        let triathlon = user.getTriathlonViaName(triathlonName)
+        triathlon.deleteRacePart(racePart)
+        saveData()
+    }
+
+    const saveRacePart = (triathlonName, racePart, updatedType, updatedDistance, updatedStartTime, updatedEndTime) => {
+        let triathlon = user.getTriathlonViaName(triathlonName)
+        triathlon.editRacePart(racePart, updatedType, updatedDistance, updatedStartTime, updatedEndTime)
+        saveData()
+    }
+
     const clearData = () => {
         // clear all data
         model.allMyUsers = []
@@ -88,7 +100,7 @@ export default function Controller() {
             <h1>Welcome, User</h1>
             {DisplayTriathlons(user, deleteTriathlon, saveTriathlon )}
             <AddTriathlonForm addTriathlon={addTriathlon}/>
-            {displayRaceParts(user)}
+            <DisplayRaceParts user={user} deleteRacePart={deleteRacePart} saveRacePart={saveRacePart} />
             <RacePartForm user={user} addRacePart={addRacePart} />
 
             {DisplayGoals(user, deleteGoal, saveGoal)}

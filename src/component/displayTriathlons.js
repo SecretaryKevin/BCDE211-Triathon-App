@@ -59,7 +59,6 @@ export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon) {
                     </thead>
                     <tbody>
                     {filteredTriathlons.map((triathlon) => {
-                        const date = new Date(triathlon.date);
                         return editingTriathlon === triathlon.name ? (
                             <tr key={triathlon.name}>
                                 <td><input ref={nameRef} defaultValue={triathlon.name} /></td>
@@ -86,7 +85,7 @@ export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon) {
                         ) : (
                             <tr key={triathlon.name}>
                                 <td>{triathlon.name}</td>
-                                <td>{date.toLocaleDateString()}</td>
+                                <td>{new Date(triathlon.date).toLocaleDateString()}</td>
                                 <td>{triathlon.location}</td>
                                 <td>{triathlon.type}</td>
                                 <td>{triathlon.raceParts.length}</td>
