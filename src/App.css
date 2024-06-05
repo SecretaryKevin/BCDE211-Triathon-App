@@ -66,7 +66,9 @@ form label {
   margin-bottom: 10px;
 }
 
-form input[type="text"], form input[type="date"], form input[type="number"] {
+
+
+form input {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -90,7 +92,7 @@ form input[type="submit"]:hover, button:hover {
   background-color: #DC5F00;
 }
 
-.form-container {
+.formContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,7 +107,7 @@ form input[type="submit"]:hover, button:hover {
   background-color: white;
 }
 
-.form-container h2 {
+.formContainer h2 {
   text-align: center;
 }
 

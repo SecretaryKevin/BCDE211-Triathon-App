@@ -17,7 +17,7 @@ export function AddGoalForm({addGoal}){
 
 return (
     <>
-        <div className="form-container">
+        <div className="formContainer">
             <h2>Add new Goal</h2>
             <form onSubmit={handleSubmit}>
                 <label>

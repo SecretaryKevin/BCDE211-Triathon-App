@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-export function AddTriathlonForm({ addTriathlon }) {
+export function AddTriathlonForm({addTriathlon}) {
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
     const [location, setLocation] = useState('');
@@ -18,8 +18,8 @@ export function AddTriathlonForm({ addTriathlon }) {
 
     return (
         <>
-            <div className="form-container">
-        <h2>Add new Triathlon Record</h2>
+            <div className="formContainer">
+                <h2>Add new Triathlon Record</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Name:

@@ -1,12 +1,14 @@
 //TODO: Fix render not liking changing between the 2 returns
 
 import React, { useState } from 'react';
-import TriathlonApp from "./model/TriathlonApp";
+import TriathlonApp from "./model/typescript/TriathlonApp";
 import {header} from "./component/header";
 import {DisplayTriathlons} from "./component/displayTriathlons";
 import {AddTriathlonForm} from "./component/addTriathlonForm";
 import {DisplayGoals} from "./component/displayGoals";
 import {AddGoalForm} from "./component/addGoalForm";
+import {displayRaceParts} from "./component/DisplayRaceparts";
+import {RacePartForm} from "./component/racePartForm";
 
 export default function Controller() {
     const [model, setModel] = useState(new TriathlonApp());
@@ -38,11 +40,8 @@ export default function Controller() {
     }
 
     const saveGoal = (goalName, goalDescription, targetTime, raceType, isCompleted) => {
-        console.log(goalName, goalDescription, targetTime, raceType, isCompleted)
         let goal = model.allMyUsers[0].getGoalViaName(goalName)
-        console.log(goal)
         model.allMyUsers[0].editGoal(goal, goalName, goalDescription, targetTime, raceType, isCompleted)
-        console.log(goal)
         saveData()
     }
 
@@ -62,6 +61,11 @@ export default function Controller() {
         saveData()
     }
 
+    const addRacePart = (triathlonName, type, distance, startTime, endTime)=>{
+        let triathlon = user.getTriathlonViaName(triathlonName)
+        triathlon.addRacePart(type, distance, startTime, endTime)
+        saveData()
+    }
 
     const clearData = () => {
         // clear all data
@@ -84,9 +88,12 @@ export default function Controller() {
             <h1>Welcome, User</h1>
             {DisplayTriathlons(user, deleteTriathlon, saveTriathlon )}
             <AddTriathlonForm addTriathlon={addTriathlon}/>
+            {displayRaceParts(user)}
+            <RacePartForm user={user} addRacePart={addRacePart} />
+
             {DisplayGoals(user, deleteGoal, saveGoal)}
             <AddGoalForm addGoal={addGoal}/>
             <button onClick={clearData}>Clear All Data</button>
-            </>
-        )
+        </>
+    )
 }

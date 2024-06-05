@@ -17,7 +17,7 @@ export function AddUserForm({ addUser }) {
 
     return (
         <div id={"userForm"}>
-        <div className="form-container">
+        <div className="formContainer">
             <h2>Add new User</h2>
         <form onSubmit={handleSubmit}>
             <label>

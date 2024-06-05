@@ -37,7 +37,7 @@ export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon) {
     return (
         <>
             <h2>Triathlons</h2>
-            <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearchChange} />
+            <input type="text" placeholder="Search via Name" value={searchTerm} onChange={handleSearchChange} />
             {filteredTriathlons.length === 0 ? (
                 <div>
                     <h3>No Triathlons found</h3>
@@ -109,11 +109,11 @@ export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon) {
 }
 
 function displayTotalTime(triathlon) {
-    let totalTime = triathlon.getTotalTime();
+    let totalTime = triathlon.getTotalTime() / 60
     return totalTime === 0 ? (
         <td>No time on record</td>
     ) : (
-        <td>{totalTime / 60} Hours</td>
+        <td>{totalTime.toFixed(2)} Hours</td>
     );
 }
 

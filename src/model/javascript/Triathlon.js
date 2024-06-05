@@ -66,7 +66,7 @@ export default class Triathlon {
     getTotalDistance() {
         let totalDistance = 0
         for (let racePart of this.raceParts) {
-            totalDistance += racePart.distanceInKm
+            totalDistance += parseFloat(racePart.distanceInKm)
         }
         return totalDistance
     }
