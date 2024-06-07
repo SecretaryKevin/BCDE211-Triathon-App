@@ -85,6 +85,12 @@ export default class User {
         return this.triathlons.find(triathlon => triathlon.name === triathlonName);
     }
 
+    sortTriathlonsByDate(): void {
+        this.triathlons.sort((a, b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+        });
+    }
+
     editTriathlon(triathlon: Triathlon, triathlonName: string, triathlonDate: string, triathlonLocation: string, triathlonType: string): void {
         triathlon.name = triathlonName;
         triathlon.date = triathlonDate;

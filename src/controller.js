@@ -9,6 +9,7 @@ import {DisplayGoals} from "./component/displayGoals";
 import {AddGoalForm} from "./component/addGoalForm";
 import {DisplayRaceParts} from "./component/DisplayRaceparts";
 import {RacePartForm} from "./component/racePartForm";
+import {footerButtons} from "./component/footerButtons";
 
 export default function Controller() {
     const [model, setModel] = useState(new TriathlonApp());
@@ -72,6 +73,10 @@ export default function Controller() {
         triathlon.deleteRacePart(racePart)
         saveData()
     }
+    const sortTriathlonsByDate = () => {
+        user.sortTriathlonsByDate()
+        saveData()
+    }
 
     const saveRacePart = (triathlonName, racePart, updatedType, updatedDistance, updatedStartTime, updatedEndTime) => {
         let triathlon = user.getTriathlonViaName(triathlonName)
@@ -93,19 +98,27 @@ export default function Controller() {
         saveData()
     }
 
+
     let user = model.allMyUsers[0]
+
+    function loadMockData() {
+        return undefined
+    }
+
     return (
         <>
             {header()}
             <h1>Welcome, User</h1>
-            {DisplayTriathlons(user, deleteTriathlon, saveTriathlon )}
+            {DisplayTriathlons(user, deleteTriathlon, saveTriathlon, sortTriathlonsByDate)}
             <AddTriathlonForm addTriathlon={addTriathlon}/>
-            <DisplayRaceParts user={user} deleteRacePart={deleteRacePart} saveRacePart={saveRacePart} />
-            <RacePartForm user={user} addRacePart={addRacePart} />
-
+            <div className={"divider"}></div>
+            <DisplayRaceParts user={user} deleteRacePart={deleteRacePart} saveRacePart={saveRacePart}/>
+            <RacePartForm user={user} addRacePart={addRacePart}/>
+            <div className={"divider"}></div>
             {DisplayGoals(user, deleteGoal, saveGoal)}
             <AddGoalForm addGoal={addGoal}/>
-            <button onClick={clearData}>Clear All Data</button>
+            <div className={"divider"}></div>
+            {footerButtons(clearData, loadMockData)}
         </>
     )
 }

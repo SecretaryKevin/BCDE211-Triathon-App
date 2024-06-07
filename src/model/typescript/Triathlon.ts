@@ -80,7 +80,7 @@ export default class Triathlon {
     }
 
     getTotalDistance(): number {
-        return this.raceParts.reduce((total, racePart) => total + racePart.distanceInKm, 0);
+        return this.raceParts.reduce((total, racePart) => total + Number(racePart.distanceInKm), 0);
     }
 
     getTotalTime(): number {

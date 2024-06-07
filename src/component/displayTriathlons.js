@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon) {
+export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon, sortTriathlonsByDate) {
     const [editingTriathlon, setEditingTriathlon] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -37,7 +37,16 @@ export function DisplayTriathlons(user, deleteTriathlon, saveTriathlon) {
     return (
         <>
             <h2>Triathlons</h2>
-            <input type="text" placeholder="Search via Name" value={searchTerm} onChange={handleSearchChange} />
+            <div className="searchSortContainer">
+                <button className={"sortButton"} onClick={sortTriathlonsByDate()}>Sort By Date</button>
+                <div className={"searchBar"}>
+                <label>
+                    Search:
+                    <input type="text" className={"search"} placeholder="Search via Name" value={searchTerm} onChange={handleSearchChange}/>
+                </label>
+                </div>
+            </div>
+
             {filteredTriathlons.length === 0 ? (
                 <div>
                     <h3>No Triathlons found</h3>

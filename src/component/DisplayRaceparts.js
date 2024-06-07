@@ -23,7 +23,6 @@ export function DisplayRaceParts({ user, deleteRacePart, saveRacePart }) {
         saveRacePart(triathlonName, racePart, updatedType, updatedDistance, updatedStartTime, updatedEndTime);
         setEditingRacePart(null);
     };
-
     return (
         <>
             <h2>Race Parts</h2>
@@ -45,7 +44,7 @@ export function DisplayRaceParts({ user, deleteRacePart, saveRacePart }) {
                     <tbody>
                     {user.triathlons.map((triathlon) => (
                         triathlon.raceParts.map((racePart) => (
-                            editingRacePart && editingRacePart.triathlonName === triathlon.name && editingRacePart.racePart === racePart ? (
+                            editingRacePart && editingRacePart.triathlonName === triathlon.name && editingRacePart.racePart.type === racePart.type && editingRacePart.racePart.distanceInKm === racePart.distanceInKm && editingRacePart.racePart.startTimeInMinutes === racePart.startTimeInMinutes && editingRacePart.racePart.endTimeInMinutes === racePart.endTimeInMinutes ? (
                                 <tr key={triathlon.name + racePart.type}>
                                     <td>{triathlon.name}</td>
                                     <td>

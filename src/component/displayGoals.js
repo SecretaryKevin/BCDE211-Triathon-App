@@ -45,12 +45,18 @@ export function DisplayGoals(user, deleteGoal, saveGoal){
     return(
         <>
             <h2>Goals</h2>
-            <input type="text" placeholder="Search via name" value={searchTerm} onChange={handleSearchChange}/>
+            <div className={"searchBar"}>
+                <label>
+                    Search:
+                    <input type="text" className={"search"} placeholder="Search via name" value={searchTerm} onChange={handleSearchChange}/>
+                </label>
+            </div>
+
             {filteredGoals.length === 0 ? (
                 <div>
                     <h3>No Goals found</h3>
                 </div>
-            ): (
+            ) : (
                 <table>
                     <thead>
                     <tr>

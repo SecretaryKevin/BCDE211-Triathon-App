@@ -23,6 +23,9 @@ body {
   font-family: Arial, sans-serif;
 }
 
+
+
+
 #userForm{
   display: flex;
   justify-content: center;
@@ -78,7 +81,7 @@ form input {
 .deleteButton{
   background-color: red;
 }
-form input[type="submit"], button {
+form input[type="submit"] {
   background-color: #FF7710;
   color: white;
   padding: 10px 20px;
@@ -97,7 +100,6 @@ form input[type="submit"]:hover, button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -134,3 +136,43 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+button{
+  background-color: #FF7710;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 200px; /* You can adjust this value as needed */
+}
+
+.search:focus {
+  border-color: #007BFF; /* This will change the border color when the search bar is focused */
+  outline: none;
+}
+
+.searchSortContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.footerButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 2rem 0;
+}
